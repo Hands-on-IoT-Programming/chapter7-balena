@@ -1,5 +1,6 @@
-# chapter9-Balena
-Code application to run in the IoT Device provisioned in Balena platform
+Code samples for Chapter 7 The IoT Software Package: Raspberry Pi side
+- Code application to run in the IoT Device provisioned in Balena platform
+
 
 # How to include your Pusher credentials
 Make a copy of the `.env.template` file and add you account credentials:
