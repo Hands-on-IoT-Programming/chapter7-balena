@@ -1,6 +1,9 @@
 Code samples for Chapter 7 The IoT Software Package: Raspberry Pi side
 - Code application to run in the IoT Device provisioned in Balena platform
 
+# Bug fix!!!
+Replace file `sensehat.js` in folder `./nodered/app/node_modules/node-red-node-pi-sense-hat/sensehat.js` by `node-red-node-pi-sense-hat/sensehat.js`
+NOTE: This doesn't force to use Python2.7 but any other version for which Sense Hat python drivers work properly
 
 # How to include your Pusher credentials
 Make a copy of the `.env.template` file and add you account credentials:
