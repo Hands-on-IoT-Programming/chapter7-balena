@@ -63,8 +63,7 @@ module.exports = {
     credentialSecret: process.env.SECRETKEY,
 
     // If not specified, data will be put in '$HOME/.node-red'
-    userDir: `${process.cwd()}/flows`,
-    //userDir: `${process.cwd()}/data`,
+    userDir: `${process.cwd()}/data`,
 
     // Node-RED scans the `nodes` directory in the install directory to find nodes.
     // The following property can be used to specify an additional directory to scan.
@@ -102,6 +101,7 @@ module.exports = {
     // -----------------
     // To password protect the Node-RED editor and admin API, the following
     // property can be used. See http://nodered.org/docs/security.html for details. 
+    /*
     adminAuth: {
         type: "credentials",
         users: [{
@@ -113,6 +113,7 @@ module.exports = {
             permissions: "read"
         }
     },
+    */
     // To password protect the node-defined HTTP endpoints (httpNodeRoot), or
     // the static content (httpStatic), the following properties can be used.
     // The pass field is a bcrypt hash of the password.
