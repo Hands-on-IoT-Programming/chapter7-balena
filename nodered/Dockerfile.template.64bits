@@ -44,7 +44,7 @@ RUN cd RTIMULib/Linux/python && python3 setup.py build && python3 setup.py insta
 # Make sure that python exists and points to python3
 RUN ln -s /usr/bin/python3 /usr/bin/python
 # And this soft link to forward rpi-sensehat NodeRED module to actual location of Sense Hat module
-RUN ln -s /usr/local/lib/python3.6 /usr/lib/python2.7
+RUN ln -s /usr/local/lib/python3.8 /usr/lib/python2.7
 #### MOVE TO THE TOP ####################################################################
 
 # server.js will run when container starts up on the device
