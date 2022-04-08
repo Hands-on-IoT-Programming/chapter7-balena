@@ -8,9 +8,9 @@ module.exports = function(RED) {
     var hatCommand = __dirname+'/sensehat';
 
     // if (!fs.existsSync('/usr/lib/python2.7/dist-packages/sense_hat')) {
-    if (!fs.existsSync('/usr/local/lib/python3.8/dist-packages/sense_hat')) {    
-    throw "Error: Can't find Sense HAT python libraries. Run sudo apt-get install sense-hat";
-    }
+    // if (!fs.existsSync('/usr/local/lib/python3.8/dist-packages/sense_hat')) {    
+    // row "Error: Can't find Sense HAT python libraries. Run sudo apt-get install sense-hat";
+    // }
 
     if ( !(1 & parseInt((fs.statSync(hatCommand).mode & parseInt ("777", 8)).toString(8)[0]) )) {
         throw "Error: "+RED._("node-red:rpi-gpio.errors.mustbeexecutable");
