@@ -2,6 +2,29 @@ Forked from https://github.com/balenalabs/balena-node-red
 
 NOTE: This application communicates with the Sense Hat using the Python library `sense-hat`
 
+# IMPORTANT NOTICE: Fix the issue of package `node-red-node-pi-sense-hat` if using Python 3
+Edit the file `sensehat.js` in the installation folder and remove the 3 lines of the if condition:
+>`nano ./nodered/app $ more node_modules/node-red-node-pi-sense-hat/sensehat.js `
+```javascript
+module.exports = function(RED) {
+    "use strict";
+    var fs = require('fs');
+    var spawn = require('child_process').spawn;
+    var colours = require('./colours');
+
+    var hatCommand = __dirname+'/sensehat';
+
+/* THIS BLOCK IS DISABLED
+    if (!fs.existsSync('/usr/lib/python2.7/dist-packages/sense_hat')) {
+        throw "Error: Can't find Sense HAT python libraries. Run sudo apt-get install sense-hat";
+    }
+    IF YOU WANT TO KEEP IT, REPLACE THE CONDITION WITH PYTHON3:
+    if (!fs.existsSync('/usr/lib/python3/dist-packages/sense_hat')) {
+        throw "Error: Can't find Sense HAT python libraries. Run sudo apt-get install sense-hat";
+    }
+*/
+```
+
 # balena-node-red
 
 A Node-RED application with [balena-supervisor](https://balena.io/docs/reference/supervisor/supervisor-api/) flow [support](https://github.com/balena-io-projects/node-red-contrib-balena), can be managed remotely via balena [publicURL](https://balena.io/docs/learn/manage/actions/#enable-public-device-url)
