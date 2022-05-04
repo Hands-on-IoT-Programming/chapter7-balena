@@ -1,5 +1,12 @@
 [
     {
+        "id": "79299737.efa738",
+        "type": "tab",
+        "label": "IMU",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "90eefcf2.2bcef",
         "type": "tab",
         "label": "Sense hat",
@@ -7,16 +14,16 @@
         "info": ""
     },
     {
-        "id": "a343795a.9e2728",
+        "id": "e7224da9.3881a",
         "type": "tab",
-        "label": "Global context",
+        "label": "Debug Pusher",
         "disabled": false,
         "info": ""
     },
     {
-        "id": "e7224da9.3881a",
+        "id": "a343795a.9e2728",
         "type": "tab",
-        "label": "Debug Pusher",
+        "label": "Global context",
         "disabled": false,
         "info": ""
     },
@@ -577,27 +584,27 @@
         "id": "a0002238.2c6bc",
         "type": "pusher out",
         "z": "90eefcf2.2bcef",
-        "name": "",
+        "name": "Pusher, envv",
         "channel": "data_env",
         "cluster": "eu",
         "eventname": "env",
-        "x": 570,
-        "y": 780,
+        "x": 770,
+        "y": 900,
         "wires": []
     },
     {
         "id": "cafed5ac.4f8fe8",
         "type": "debug",
         "z": "90eefcf2.2bcef",
-        "name": "messages",
+        "name": "type env",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "x": 590,
-        "y": 820,
+        "x": 580,
+        "y": 860,
         "wires": []
     },
     {
@@ -880,20 +887,20 @@
         "id": "86b4c285.f2196",
         "type": "throttle",
         "z": "90eefcf2.2bcef",
-        "name": "",
+        "name": "4s",
         "throttleType": "time",
-        "timeLimit": "2",
+        "timeLimit": "4",
         "timeLimitType": "seconds",
         "countLimit": 0,
         "blockSize": 0,
         "locked": false,
-        "x": 410,
-        "y": 780,
+        "x": 350,
+        "y": 880,
         "wires": [
             [
+                "2c3678f0.1f7408",
                 "cafed5ac.4f8fe8",
-                "a0002238.2c6bc",
-                "2c3678f0.1f7408"
+                "a0002238.2c6bc"
             ]
         ]
     },
@@ -918,8 +925,8 @@
         "timestampField": "timestamp",
         "repeatTimeout": false,
         "name": "",
-        "x": 560,
-        "y": 880,
+        "x": 400,
+        "y": 800,
         "wires": [
             [
                 "9444da7d.f825d8"
@@ -938,23 +945,23 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "x": 750,
-        "y": 880,
+        "x": 580,
+        "y": 800,
         "wires": []
     },
     {
         "id": "836fa676.b74248",
         "type": "pusher in",
         "z": "e7224da9.3881a",
-        "name": "",
+        "name": "Pusher, env",
         "channel": "data_env",
         "cluster": "eu",
         "eventname": "env",
-        "x": 50,
-        "y": 240,
+        "x": 130,
+        "y": 120,
         "wires": [
             [
-                "86629156.66cfb"
+                "602561b7.efe71"
             ]
         ]
     },
@@ -963,14 +970,14 @@
         "type": "debug",
         "z": "e7224da9.3881a",
         "name": "Last 10 samples",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
-        "tostatus": false,
+        "tostatus": true,
         "complete": "payload",
         "targetType": "msg",
-        "x": 660,
-        "y": 140,
+        "x": 940,
+        "y": 120,
         "wires": []
     },
     {
@@ -980,7 +987,7 @@
         "name": "",
         "bufferLen": "10",
         "startWhenFilled": false,
-        "x": 390,
+        "x": 710,
         "y": 240,
         "wires": [
             [
@@ -1011,8 +1018,8 @@
         "timestampField": "timestamp",
         "repeatTimeout": false,
         "name": "",
-        "x": 400,
-        "y": 60,
+        "x": 700,
+        "y": 80,
         "wires": [
             [
                 "393033ab.f96fbc"
@@ -1025,13 +1032,13 @@
         "type": "debug",
         "z": "e7224da9.3881a",
         "name": "msg.payload[9] -> MOST RECENT",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": true,
         "complete": "payload[9]",
         "targetType": "msg",
-        "x": 720,
+        "x": 1000,
         "y": 180,
         "wires": []
     },
@@ -1040,13 +1047,13 @@
         "type": "debug",
         "z": "e7224da9.3881a",
         "name": "msg.payload[0] -> OLDEST",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
-        "tostatus": false,
+        "tostatus": true,
         "complete": "payload[0]",
         "targetType": "msg",
-        "x": 700,
+        "x": 980,
         "y": 240,
         "wires": []
     },
@@ -1058,10 +1065,10 @@
         "active": false,
         "tosidebar": true,
         "console": false,
-        "tostatus": false,
+        "tostatus": true,
         "complete": "payload",
         "targetType": "msg",
-        "x": 660,
+        "x": 940,
         "y": 60,
         "wires": []
     },
@@ -1070,7 +1077,7 @@
         "type": "rpi-sensehat in",
         "z": "90eefcf2.2bcef",
         "name": "",
-        "motion": false,
+        "motion": true,
         "env": true,
         "stick": false,
         "x": 310,
@@ -1081,7 +1088,7 @@
                 "10364dff.076832",
                 "b052564c.2ce688",
                 "bcf3bea9.02973",
-                "86b4c285.f2196"
+                "ed0a20d6.4df54"
             ]
         ]
     },
@@ -1111,8 +1118,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 190,
-        "y": 240,
+        "x": 510,
+        "y": 180,
         "wires": [
             [
                 "f97cb3ba.92908",
@@ -1299,5 +1306,376 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "9e80b5e6.3012b8",
+        "type": "rpi-sensehat in",
+        "z": "79299737.efa738",
+        "name": "",
+        "motion": true,
+        "env": false,
+        "stick": false,
+        "x": 140,
+        "y": 140,
+        "wires": [
+            [
+                "b2e57cca.df265",
+                "eab2e069.15eff"
+            ]
+        ]
+    },
+    {
+        "id": "c10dcad7.a6d3b8",
+        "type": "debug",
+        "z": "79299737.efa738",
+        "name": "IMU",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 690,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "bdb8e8a2.8bff18",
+        "type": "throttle",
+        "z": "79299737.efa738",
+        "name": "",
+        "throttleType": "time",
+        "timeLimit": "2",
+        "timeLimitType": "seconds",
+        "countLimit": 0,
+        "blockSize": 0,
+        "locked": false,
+        "x": 490,
+        "y": 360,
+        "wires": [
+            [
+                "c10dcad7.a6d3b8"
+            ]
+        ]
+    },
+    {
+        "id": "b2e57cca.df265",
+        "type": "switch",
+        "z": "79299737.efa738",
+        "name": "Sensors",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "environment",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "motion",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 320,
+        "y": 280,
+        "wires": [
+            [
+                "6600b4c6.b96a8c"
+            ],
+            [
+                "bdb8e8a2.8bff18"
+            ]
+        ]
+    },
+    {
+        "id": "2db6b2c2.e2222e",
+        "type": "debug",
+        "z": "79299737.efa738",
+        "name": "Environment",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 710,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "6600b4c6.b96a8c",
+        "type": "throttle",
+        "z": "79299737.efa738",
+        "name": "",
+        "throttleType": "time",
+        "timeLimit": "2",
+        "timeLimitType": "seconds",
+        "countLimit": 0,
+        "blockSize": 0,
+        "locked": false,
+        "x": 490,
+        "y": 240,
+        "wires": [
+            [
+                "2db6b2c2.e2222e"
+            ]
+        ]
+    },
+    {
+        "id": "14c029a7.521756",
+        "type": "debug",
+        "z": "79299737.efa738",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 570,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "eab2e069.15eff",
+        "type": "throttle",
+        "z": "79299737.efa738",
+        "name": "",
+        "throttleType": "time",
+        "timeLimit": "1",
+        "timeLimitType": "seconds",
+        "countLimit": 0,
+        "blockSize": 0,
+        "locked": false,
+        "x": 390,
+        "y": 100,
+        "wires": [
+            [
+                "14c029a7.521756"
+            ]
+        ]
+    },
+    {
+        "id": "5a8faa9b.1fe044",
+        "type": "switch",
+        "z": "90eefcf2.2bcef",
+        "name": "Sensors",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "environment",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "motion",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 140,
+        "y": 900,
+        "wires": [
+            [
+                "86b4c285.f2196"
+            ],
+            [
+                "bba1150.a1e1de8"
+            ]
+        ]
+    },
+    {
+        "id": "bba1150.a1e1de8",
+        "type": "throttle",
+        "z": "90eefcf2.2bcef",
+        "name": "4s",
+        "throttleType": "time",
+        "timeLimit": "4",
+        "timeLimitType": "seconds",
+        "countLimit": 0,
+        "blockSize": 0,
+        "locked": false,
+        "x": 350,
+        "y": 920,
+        "wires": [
+            [
+                "2849d95.f26ae26",
+                "a0002238.2c6bc"
+            ]
+        ]
+    },
+    {
+        "id": "2849d95.f26ae26",
+        "type": "debug",
+        "z": "90eefcf2.2bcef",
+        "name": "type motion",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 590,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "d6066e8a.3179c",
+        "type": "comment",
+        "z": "90eefcf2.2bcef",
+        "name": "output 1: environment",
+        "info": "",
+        "x": 180,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "19be3c28.1eb874",
+        "type": "comment",
+        "z": "90eefcf2.2bcef",
+        "name": "output 2: motion",
+        "info": "",
+        "x": 160,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "602561b7.efe71",
+        "type": "switch",
+        "z": "e7224da9.3881a",
+        "name": "extract",
+        "property": "payload.type",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "environment",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "motion",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 350,
+        "y": 240,
+        "wires": [
+            [
+                "cd94c3b1.8ddbb",
+                "86629156.66cfb"
+            ],
+            [
+                "cd6c582a.e09598"
+            ],
+            [
+                "4988f8fa.5d82b8"
+            ]
+        ]
+    },
+    {
+        "id": "ed0a20d6.4df54",
+        "type": "function",
+        "z": "90eefcf2.2bcef",
+        "name": "Add type",
+        "func": "msg.payload.type = msg.topic;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 180,
+        "y": 720,
+        "wires": [
+            [
+                "5a8faa9b.1fe044"
+            ]
+        ]
+    },
+    {
+        "id": "cd94c3b1.8ddbb",
+        "type": "debug",
+        "z": "e7224da9.3881a",
+        "name": "environment",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 390,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "cd6c582a.e09598",
+        "type": "debug",
+        "z": "e7224da9.3881a",
+        "name": "motion",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 370,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "4988f8fa.5d82b8",
+        "type": "debug",
+        "z": "e7224da9.3881a",
+        "name": "otherwise",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 160,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "ba7b1d42.537a6",
+        "type": "comment",
+        "z": "e7224da9.3881a",
+        "name": "output 1: environment",
+        "info": "",
+        "x": 160,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "e99a667f.dbfa68",
+        "type": "comment",
+        "z": "e7224da9.3881a",
+        "name": "output 2: motion",
+        "info": "",
+        "x": 140,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "342dcda2.2d3532",
+        "type": "comment",
+        "z": "e7224da9.3881a",
+        "name": "output 3: discarded",
+        "info": "It can be produced by other IoT devices publishing in the same Pusher app & topic",
+        "x": 150,
+        "y": 300,
+        "wires": []
     }
 ]
