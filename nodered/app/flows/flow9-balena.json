@@ -1,12 +1,5 @@
 [
     {
-        "id": "79299737.efa738",
-        "type": "tab",
-        "label": "IMU",
-        "disabled": false,
-        "info": ""
-    },
-    {
         "id": "90eefcf2.2bcef",
         "type": "tab",
         "label": "Sense hat",
@@ -584,7 +577,7 @@
         "id": "a0002238.2c6bc",
         "type": "pusher out",
         "z": "90eefcf2.2bcef",
-        "name": "Pusher, envv",
+        "name": "Pusher out",
         "channel": "data_env",
         "cluster": "eu",
         "eventname": "env",
@@ -953,11 +946,11 @@
         "id": "836fa676.b74248",
         "type": "pusher in",
         "z": "e7224da9.3881a",
-        "name": "Pusher, env",
+        "name": "Pusher in",
         "channel": "data_env",
         "cluster": "eu",
         "eventname": "env",
-        "x": 130,
+        "x": 120,
         "y": 120,
         "wires": [
             [
@@ -1119,7 +1112,7 @@
         "to": "",
         "reg": false,
         "x": 510,
-        "y": 180,
+        "y": 160,
         "wires": [
             [
                 "f97cb3ba.92908",
@@ -1308,158 +1301,6 @@
         ]
     },
     {
-        "id": "9e80b5e6.3012b8",
-        "type": "rpi-sensehat in",
-        "z": "79299737.efa738",
-        "name": "",
-        "motion": true,
-        "env": false,
-        "stick": false,
-        "x": 140,
-        "y": 140,
-        "wires": [
-            [
-                "b2e57cca.df265",
-                "eab2e069.15eff"
-            ]
-        ]
-    },
-    {
-        "id": "c10dcad7.a6d3b8",
-        "type": "debug",
-        "z": "79299737.efa738",
-        "name": "IMU",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "x": 690,
-        "y": 360,
-        "wires": []
-    },
-    {
-        "id": "bdb8e8a2.8bff18",
-        "type": "throttle",
-        "z": "79299737.efa738",
-        "name": "",
-        "throttleType": "time",
-        "timeLimit": "2",
-        "timeLimitType": "seconds",
-        "countLimit": 0,
-        "blockSize": 0,
-        "locked": false,
-        "x": 490,
-        "y": 360,
-        "wires": [
-            [
-                "c10dcad7.a6d3b8"
-            ]
-        ]
-    },
-    {
-        "id": "b2e57cca.df265",
-        "type": "switch",
-        "z": "79299737.efa738",
-        "name": "Sensors",
-        "property": "topic",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "environment",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "motion",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 320,
-        "y": 280,
-        "wires": [
-            [
-                "6600b4c6.b96a8c"
-            ],
-            [
-                "bdb8e8a2.8bff18"
-            ]
-        ]
-    },
-    {
-        "id": "2db6b2c2.e2222e",
-        "type": "debug",
-        "z": "79299737.efa738",
-        "name": "Environment",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "x": 710,
-        "y": 240,
-        "wires": []
-    },
-    {
-        "id": "6600b4c6.b96a8c",
-        "type": "throttle",
-        "z": "79299737.efa738",
-        "name": "",
-        "throttleType": "time",
-        "timeLimit": "2",
-        "timeLimitType": "seconds",
-        "countLimit": 0,
-        "blockSize": 0,
-        "locked": false,
-        "x": 490,
-        "y": 240,
-        "wires": [
-            [
-                "2db6b2c2.e2222e"
-            ]
-        ]
-    },
-    {
-        "id": "14c029a7.521756",
-        "type": "debug",
-        "z": "79299737.efa738",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "x": 570,
-        "y": 80,
-        "wires": []
-    },
-    {
-        "id": "eab2e069.15eff",
-        "type": "throttle",
-        "z": "79299737.efa738",
-        "name": "",
-        "throttleType": "time",
-        "timeLimit": "1",
-        "timeLimitType": "seconds",
-        "countLimit": 0,
-        "blockSize": 0,
-        "locked": false,
-        "x": 390,
-        "y": 100,
-        "wires": [
-            [
-                "14c029a7.521756"
-            ]
-        ]
-    },
-    {
         "id": "5a8faa9b.1fe044",
         "type": "switch",
         "z": "90eefcf2.2bcef",
@@ -1572,8 +1413,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 3,
-        "x": 350,
-        "y": 240,
+        "x": 310,
+        "y": 260,
         "wires": [
             [
                 "cd94c3b1.8ddbb",
@@ -1614,8 +1455,8 @@
         "tostatus": true,
         "complete": "payload",
         "targetType": "msg",
-        "x": 390,
-        "y": 120,
+        "x": 510,
+        "y": 220,
         "wires": []
     },
     {
@@ -1629,8 +1470,8 @@
         "tostatus": true,
         "complete": "payload",
         "targetType": "msg",
-        "x": 370,
-        "y": 420,
+        "x": 490,
+        "y": 280,
         "wires": []
     },
     {
@@ -1644,8 +1485,8 @@
         "tostatus": true,
         "complete": "payload",
         "targetType": "msg",
-        "x": 160,
-        "y": 480,
+        "x": 500,
+        "y": 340,
         "wires": []
     },
     {
@@ -1654,7 +1495,7 @@
         "z": "e7224da9.3881a",
         "name": "output 1: environment",
         "info": "",
-        "x": 160,
+        "x": 180,
         "y": 220,
         "wires": []
     },
@@ -1674,7 +1515,7 @@
         "z": "e7224da9.3881a",
         "name": "output 3: discarded",
         "info": "It can be produced by other IoT devices publishing in the same Pusher app & topic",
-        "x": 150,
+        "x": 190,
         "y": 300,
         "wires": []
     }
